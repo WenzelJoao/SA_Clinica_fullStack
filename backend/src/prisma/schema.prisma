@@ -87,14 +87,14 @@ model Consulta {
 }
 
 model Paciente {
-  id              Int          @id @default(autoincrement())
-  nome            String
-  cpf             String
-  telefone        String
-  email           String
-  data_nascimento DateTime
-  sexo            String
-  responsavel     String?
+    id              Int          @id @default(autoincrement())
+    nome            String
+    cpf             String
+    telefone        String
+    email           String
+    data_nascimento DateTime
+    sexo            String
+    responsavel     String?
   Prontuario      Prontuario[]
   Consulta        Consulta[]
   Exame           Exame[]

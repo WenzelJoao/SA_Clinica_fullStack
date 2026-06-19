@@ -37,6 +37,9 @@ export class ConsultationRepository {
         const consultaAtualizada = await prisma.consulta.update({
             data: {
                 ...dadosParaAtualizar,
+                motivo: dadosParaAtualizar.motivo,
+                observacoes: dadosParaAtualizar.observacoes,
+                medico_responsavel_id: dadosParaAtualizar.medico_responsavel_id,
                 data_consulta: new Date(dadosParaAtualizar.data_consulta)
             },
             where: {

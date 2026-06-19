@@ -21,13 +21,23 @@ export class ProntuarioRepository {
     }
 
     async criarProntuario(dadosProntuario: Partial<Prontuario>) {
-        console.log(dadosProntuario);
+        console.log({
+            descricao: dadosProntuario.descricao,
+            data_prontuario: dadosProntuario.data_prontuario,
+            medico_responsavel_id: dadosProntuario.medico_responsavel_id,
+            paciente_id: dadosProntuario.paciente_id
+        });
+        console.log("dadosProntuario", dadosProntuario);
+        console.log("paciente_id", dadosProntuario.paciente_id);
+        console.log("medico_responsavel_id", dadosProntuario.medico_responsavel_id);
+
+
         return await this.prisma.prontuario.create({
             data: {
                 descricao: dadosProntuario.descricao || "",
                 data_prontuario: new Date(dadosProntuario.data_prontuario || ""),
                 medico_responsavel_id: Number(dadosProntuario.medico_responsavel_id),
-                paciente_id: Number(dadosProntuario)
+                paciente_id: Number(dadosProntuario.paciente_id)
             }
         })
     }
@@ -36,6 +46,8 @@ export class ProntuarioRepository {
         const prontuarioAtualizada = await prisma.prontuario.update({
             data: {
                 ...dadosParaAtualizar,
+                descricao: dadosParaAtualizar.descricao,
+                medico_responsavel_id: dadosParaAtualizar.medico_responsavel_id,
                 data_prontuario: new Date(dadosParaAtualizar.data_prontuario || "")
             },
             where: {

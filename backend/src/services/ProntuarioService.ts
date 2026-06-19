@@ -16,7 +16,7 @@ export class ProntuarioService {
                 descricao: dadosProntuario.descricao || "",
                 data_prontuario: new Date(dadosProntuario.data_prontuario || ""),
                 medico_responsavel_id: Number(dadosProntuario.medico_responsavel_id),
-                paciente_id: Number(dadosProntuario)
+                paciente_id: Number(dadosProntuario.paciente_id)
         })
         return prontuarioCriado
     }

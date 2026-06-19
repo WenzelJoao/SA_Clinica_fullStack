@@ -4,6 +4,8 @@ import type {
 } from "express";
 export function auth(req: Request, res: Response, next: NextFunction) {
     const header = req.headers.authorization;
+    console.log(header);
+    
     if (!header?.startsWith("Bearer ")) {
         return res.status(401).json({
             error: "missing token"

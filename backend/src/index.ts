@@ -4,6 +4,9 @@ import cors from "cors"
 import { authRouter } from './routes/auth';
 import { usuarioRouter } from './routes/usuario';
 import { exameRouter } from './routes/exame';
+import { pacienteRouter } from './routes/patient';
+import { prontuarioRouter } from './routes/prontuario';
+import { consultationRouter } from './routes/consultation';
 
 const app = express();
 app.use(express.json())
@@ -22,6 +25,9 @@ app.use(auth)
 
 app.use(usuarioRouter)
 app.use(exameRouter)
+app.use(prontuarioRouter)
+app.use(consultationRouter)
+app.use(pacienteRouter)
 
 app.listen(port, () => {
   console.log("Servidor ta de pé :p")

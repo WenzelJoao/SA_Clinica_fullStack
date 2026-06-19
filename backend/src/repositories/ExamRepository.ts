@@ -50,6 +50,10 @@ export class ExamRepository {
         const exameAtualizado = await prisma.exame.update({
             data: {
                 ...dadosParaAtualizar,
+                tipo_exame: dadosParaAtualizar.tipo_exame,
+                valor: dadosParaAtualizar.valor,
+                descricao: dadosParaAtualizar.descricao,
+                resultado: dadosParaAtualizar.resultado,
                 data_exame: new Date(dadosParaAtualizar.data_exame)
             },
             where: {
